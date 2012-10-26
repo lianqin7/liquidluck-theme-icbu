@@ -227,6 +227,15 @@ body .fn-hide {
     margin-top: 40px;
 }
 
+/*rest引起的样式问题*/
+.markdown-body li{
+	margin-left:0;
+}
+
+.insert-code li{
+	margin-left:30px;
+}
+
 /* typography */
 .markdown-body {
     line-height: 1.6;
