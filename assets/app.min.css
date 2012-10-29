@@ -236,6 +236,20 @@ body .fn-hide {
 	margin-left:30px;
 }
 
+/*h2 标签样式优化*/
+.markdown-body h2{
+	font-size: 22px;
+	margin: 20px 0 10px;
+	padding-top: 0;
+	border-bottom: 1px solid #DDD;
+}
+
+.insert-code h2{
+	font-size: 0.75em;
+	margin: 0 0 0.75em 0;
+	border-bottom: 0 none;
+}
+
 /* typography */
 .markdown-body {
     line-height: 1.6;
