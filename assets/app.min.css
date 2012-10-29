@@ -243,6 +243,7 @@ body .fn-hide {
 	padding-top: 0;
 	border-bottom: 1px solid #DDD;
 	line-height: 1.6;
+	font-weight: bold;
 }
 
 .insert-code h2{
@@ -250,6 +251,7 @@ body .fn-hide {
 	margin: 0 0 0.75em 0;
 	border-bottom: 0 none;
 	line-height: 1;
+	font-weight: normal;
 }
 
 /* typography */
