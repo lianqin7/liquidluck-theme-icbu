@@ -1,0 +1,68 @@
+#!/usr/bin/env python
+
+import os
+import subprocess
+
+ARALE_SETTINGS = os.path.expanduser('~/.liquidluck-themes/arale/settings.yml')
+
+
+def install_dependency():
+    try:
+        import pip
+        print("%s installed" % pip.__name__)
+        cmd1 = ['sudo', 'pip', 'install', '-U', 'liquidluck']
+        cmd2 = ['sudo', 'pip', 'install', '-U', 'tornado']
+    except:
+        cmd1 = ['sudo', 'easy_install', '-U', 'liquidluck']
+        cmd2 = ['sudo', 'easy_install', '-U', 'tornado']
+    subprocess.call(cmd1)
+    subprocess.call(cmd2)
+
+
+def install_arale():
+    subprocess.call(['liquidluck', 'install', 'alipay/arale', '-g'])
+
+
+def init_nico():
+    INSTALLED = False
+    try:
+        import liquidluck
+        print("Felix Felicis (liquidluck %s)" % liquidluck.__version__)
+        INSTALLED = True
+    except:
+        install_dependency()
+        INSTALLED = True
+
+    if not os.path.exists(ARALE_SETTINGS) and INSTALLED:
+        install_arale()
+
+
+def build():
+    try:
+        import liquidluck
+        print("Felix Felicis (liquidluck %s)" % liquidluck.__version__)
+    except:
+        install_dependency()
+
+    subprocess.call(['liquidluck', 'build', '-v', '-s', ARALE_SETTINGS])
+
+
+def cli(arg):
+    if arg == 'upgrade':
+        install_dependency()
+        install_arale()
+    elif arg == 'build':
+        build()
+    elif arg == 'server':
+        subprocess.call(['liquidluck', 'server', '-s', ARALE_SETTINGS])
+
+
+if __name__ == '__main__':
+    init_nico()
+    import sys
+    if (len(sys.argv) == 1):
+        cmd = 'upgrade'
+    else:
+        cmd = sys.argv[1]
+
+    cli(cmd)

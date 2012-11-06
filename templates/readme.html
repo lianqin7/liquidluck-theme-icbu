@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div class="markdown-body">
+  <h1 class="entry-title">{{post.title}}</h1>
+  <div class="other-info">
+    <a href="history.html">历史</a>
+    {%- if resource.package.root and resource.package.root != '#' %}
+    <a target="_blank" href="http://git.alipay.im/{{resource.package.root}}_{{resource.package.name}}/">源码</a>
+    {%- else %}
+    <a target="_blank" href="https://github.com/aralejs/{{resource.package.name}}/">源码</a>
+    {%- endif %}
+  </div>
+  {%- if resource.package.description %}
+  <p class="entry-description">{{resource.package.description}}</p>
+  {%- endif %}
+  {%- if resource.package.root and resource.package.root != '#' %}
+  <p class="entry-cdn" data-name="{{resource.package.root}}_{{resource.package.name}}"></p>
+  {% else %}
+  <p class="entry-cdn" data-name="{{resource.package.name}}"></p>
+  {% endif %}
+  <hr />
+
+  {{ post.content|wiki_link|read_more }}
+
+  <h2>用例</h2>
+  <p><a href="{{content_url("tests/runner.html")}}">测试用例</a></p>
+
+  <h2>讨论</h2>
+  <p>有任何疑问，欢迎发送邮件到 <a href="https://groups.google.com/forum/?fromgroups#!forum/aralejs">aralejs@googlegroups.com</a></p>
+  {%- if resource.package.root and resource.package.root != '#' %}
+  <p>发现 bug？请提交 <a href="http://git.alipay.im/{{resource.package.root}}_{{resource.package.name}}/issues/new">Issue</a></p>
+  {%- else %}
+  <p>发现 bug？请提交 <a href="https://github.com/aralejs/{{resource.package.name}}/issues/new">Issue</a></p>
+  {%- endif %}
+</div>
+{% endblock %}
+
+{%- block side -%}
+<div class="sidebar sidebar-components"></div>
+{%- endblock %}

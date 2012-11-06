@@ -1,0 +1,18 @@
+{%- set examples = resource.category.get('examples') %}
+{%- if examples %}
+<h2>演示</h2>
+<ul>
+  {%- for item in examples %}
+  <li><a href="{{item|permalink}}">{{item.title}}</a></li>
+  {%- endfor %}
+</ul>
+{%- endif %}
+{%- set docs = resource.category.get('docs') %}
+{%- if docs %}
+<h2>文档</h2>
+<ul>
+  {%- for item in docs %}
+  <li><a href="{{item|permalink}}">{{item.title}}</a></li>
+  {%- endfor %}
+</ul>
+{%- endif %}

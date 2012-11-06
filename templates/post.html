@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}{{resource.package.name|title}} - {{post.title}}{% endblock %}
+
+{% block main %}
+<div class="markdown-body">
+  <h1 class="entry-title"><a id="back-to-module" href="{{content_url("index.html")}}">{{resource.package.name|title}}</a> - {{post.title}}</h1>
+  {{ post.content|wiki_link }}
+</div>
+{% endblock %}
+
+{%- block side -%}
+<div class="sidebar sidebar-components"></div>
+{%- endblock %}
