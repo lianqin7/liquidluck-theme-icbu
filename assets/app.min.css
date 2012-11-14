@@ -115,7 +115,7 @@ body .fn-hide {
     overflow:hidden;
     width:100px;
     opacity:1;
-    background:transparent url('http://arale2.alipay.im/static/img/arale-logo-2.png') no-repeat;
+    /*background:transparent url('http://arale2.alipay.im/static/img/arale-logo-2.png') no-repeat;*/
 }
 #header .global-nav {
     float: left;
